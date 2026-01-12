@@ -1,0 +1,19 @@
+This project is a Playwright end-to-end test suite using TypeScript.
+
+General rules:
+- Follow Playwright best practices.
+- Use Page Object Model.
+- Prefer getByRole, getByLabel, getByPlaceholder, or test ids over CSS selectors.
+- Avoid arbitrary waits and setTimeout.
+- Use explicit, meaningful assertions.
+
+Code style:
+- Keep tests readable and deterministic.
+- One responsibility per Page Object.
+- Do not introduce new abstractions unless explicitly requested.
+- Do not refactor unrelated files.
+
+AI behavior:
+- Make small, incremental changes.
+- Always explain what you changed and why.
+- If unsure, ask before making architectural decisions.
