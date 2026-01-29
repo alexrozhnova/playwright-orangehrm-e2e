@@ -5,4 +5,5 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-/playwright/.auth/
+# Auth state files (credentials); keep directory via .gitkeep for CI
+/playwright/.auth/*.json
