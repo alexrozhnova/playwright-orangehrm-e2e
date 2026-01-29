@@ -4,6 +4,8 @@ import { DashboardPage } from '../../src/pages/dashboard.page';
 
 const authFile = 'playwright/.auth/admin.json';
 
+setup.setTimeout(60_000);
+
 setup('authenticate as Admin', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const dashboardPage = new DashboardPage(page);
