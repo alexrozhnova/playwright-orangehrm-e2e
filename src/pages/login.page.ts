@@ -17,7 +17,7 @@ export class LoginPage {
   }
 
   async open() {
-    await this.page.goto('https://opensource-demo.orangehrmlive.com/');
+    await this.page.goto('/web/index.php/auth/login');
     // Quick sanity: login button is visible -> page loaded
     await expect(this.loginButton).toBeVisible();
   }
