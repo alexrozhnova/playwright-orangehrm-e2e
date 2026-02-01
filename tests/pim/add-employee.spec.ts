@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { AddEmployeePage } from '../../src/pages/pim/add-employee.page';
+import { EmployeeListPage } from '../../src/pages/pim/employee-list.page';
 
 test.describe('PIM - Add Employee', () => {
   test('should create a new employee successfully', async ({ page }) => {
@@ -23,5 +24,11 @@ test.describe('PIM - Add Employee', () => {
 
     // Log employeeId in output
     console.log(`Created employee with ID: ${employeeId}`);
+
+    // Navigate to Employee List page and verify employee exists
+    const employeeListPage = new EmployeeListPage(page);
+    await employeeListPage.open();
+    await employeeListPage.searchByEmployeeId(employeeId);
+    await employeeListPage.expectRowWithEmployeeId(employeeId);
   });
 });

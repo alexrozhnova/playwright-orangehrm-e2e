@@ -39,9 +39,9 @@ export class AddEmployeePage {
     // Fill middle name
     await this.middleNameInput.fill(middleName);
     
-    // Read employeeId before saving
-    await expect(this.employeeIdInput).toBeVisible();
-    const employeeId = await this.employeeIdInput.inputValue();
+    // Generate and fill unique Employee Id
+    const employeeId = String(Date.now() % 10000).padStart(4, '0');
+    await this.employeeIdInput.fill(employeeId);
     
     // Click Save button
     await this.saveButton.click();
