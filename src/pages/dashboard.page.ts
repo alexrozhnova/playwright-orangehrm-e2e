@@ -10,4 +10,10 @@ export class DashboardPage {
   async expectOpened() {
     await expect(this.page).toHaveURL(/dashboard/);
   }
+
+  async openPIM() {
+    await this.page.goto('/web/index.php/dashboard/index');
+    await this.page.locator('a[href*="/web/index.php/pim/viewPimModule"], a[href*="/web/index.php/pim/viewEmployeeList"]').first().click();
+    await this.page.waitForURL(/\/web\/index\.php\/pim\/viewEmployeeList/);
+  }
 }

@@ -1,10 +1,14 @@
 import { test, expect } from '@playwright/test';
+import { DashboardPage } from '../../src/pages/dashboard.page';
 import { AddEmployeePage } from '../../src/pages/pim/add-employee.page';
 import { EmployeeListPage } from '../../src/pages/pim/employee-list.page';
 
 test.describe('PIM - Add Employee', () => {
   test('should create a new employee successfully', async ({ page }) => {
+    const dashboardPage = new DashboardPage(page);
     const addEmployeePage = new AddEmployeePage(page);
+
+    await dashboardPage.openPIM();
 
     // Generate random names for test data
     const random = Math.floor(Math.random() * 10000);
